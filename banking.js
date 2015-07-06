@@ -27,3 +27,11 @@ function withdraw(withdrawlAmount) {
 function deposit(depositAmount) {
 	setBalance( accountBalance + depositAmount );
 };
+
+function setAddress(newAddress) {
+	userAddress = newAddress;
+}
+
+function giveIntrest() {
+	setBalance (accountBalance + (accountBalance * 0.03) );
+}
