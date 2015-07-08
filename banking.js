@@ -43,10 +43,22 @@ function giveInterest() {
 
 var i;
 
-function estimateIntrest() {
-	for (i = 0; i <= 365; i++) {
-			accountBalance + (accountBalance * 0.03);
+function estimateIntrest(days) {
+	for (i = 0; i < days; i++) {
+		setBalance (accountBalance + (accountBalance * 0.03) );
 	}
 	console.log(accountBalance);
 }
 
+
+// UNRELATED PRACTICE
+
+var i;
+var airplaneParts = [];
+for (var i = 0; i < 6; i++) {
+	airplaneParts.push(prompt("Name an airplane part."));
+}
+
+for (var i = airplaneParts.length; i == airplaneParts.length; i--) {
+	alert(airplaneParts.pop());
+}
