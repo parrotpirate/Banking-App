@@ -16,19 +16,18 @@ function printBalance() {
 	console.log("Current account balance is $" + accountBalance);
 }
 
-function setBalance(newBalance) {
-	accountBalance = newBalance;
-	console.log("Current account balance is $" + accountBalance);
-}
 
 function withdraw(withdrawlAmount) {
 	setBalance( accountBalance - withdrawlAmount );
-	console.log("Current account balance is $" + accountBalance);
 }
 
 function deposit(depositAmount) {
 	setBalance( accountBalance + depositAmount );
-	console.log("Current account balance is $" + accountBalance);
+}
+
+function setBalance(newBalance) {
+	accountBalance = newBalance;
+	printBalance();
 }
 
 function setAddress(newAddress) {
@@ -37,28 +36,57 @@ function setAddress(newAddress) {
 }
 
 function giveInterest() {
+	if (accountBalance > 0) {
 	setBalance (accountBalance + (accountBalance * 0.03) );
-	// console.log("Current account balance is $" + accountBalance);
+	}
 }
+
+
 
 var i;
 
 function estimateIntrest(days) {
+
+var estimateBalance = accountBalance;
+
+
 	for (i = 0; i < days; i++) {
-		setBalance (accountBalance + (accountBalance * 0.03) );
+		estimateBalance = (estimateBalance + (estimateBalance * 0.03) );
 	}
-	console.log(accountBalance);
+	console.log(estimateBalance);
 }
 
+// with for loop
+function predictInterestForLoop( numYearsToPredict) {
+var pretendBalance = accountBalance;
 
-// UNRELATED PRACTICE
+for( i=0; i < numYearsToPredict * 365; i++){
+	pretendBalance = pretendBalance * 1.03;
 
-var i;
-var airplaneParts = [];
-for (var i = 0; i < 6; i++) {
-	airplaneParts.push(prompt("Name an airplane part."));
+	}
+	console.log("After " + numYearsToPredict + "years your balance would be " + pretendBalance);
+
 }
 
-for (var i = airplaneParts.length; i == airplaneParts.length; i--) {
-	alert(airplaneParts.pop());
+// with while loop
+function predictInterestWhileLoop( numYearsToPredict) {
+var	pretendBalance = accountBalance;
+
+var i = 0;
+while( i<numYearsToPredict*365  ) {
+		pretendBalance = pretendBalance * 1.03;
+		i++;
+	}
+
+}
+// using recursion
+function predictInterestRecursive( numYearsToPredict, pretendBalance) {
+
+	if(numDaysToPredict <= 0 ) {
+		console.log( printBalance);
+		return pretendBalance;
+	}
+
+	else predictInterestRecursive( numDaysToPredict-1, pretendBalance*1.03);
+
 }
